@@ -32,29 +32,12 @@ module.exports = (env, argv) => {
 
                 {
                     test: /\.css$/,
-                    use: [
-                        {
-                            loader: MiniCssExtractPlugin.loader,
-                            options: {
-                                // you can specify a publicPath here
-                                // by default it uses publicPath in webpackOptions.output
-                                publicPath: "../"
-                            }
-                        },
-                        { loader: "css-loader" }
-                    ]
+                    use: [{ loader: "style-loader" }, { loader: "css-loader" }]
                 },
                 {
                     test: /\.scss$/,
                     use: [
-                        {
-                            loader: MiniCssExtractPlugin.loader,
-                            options: {
-                                // you can specify a publicPath here
-                                // by default it uses publicPath in webpackOptions.output
-                                publicPath: "../"
-                            }
-                        },
+                        { loader: "style-loader" },
                         { loader: "css-loader" },
                         { loader: "sass-loader" }
                     ]
@@ -76,28 +59,10 @@ module.exports = (env, argv) => {
             watchContentBase: true,
             contentBase: path.join(__dirname, "static")
         },
-        plugins:
-            argv.mode === "development"
-                ? [
-                      new webpack.HotModuleReplacementPlugin({
-                          // Options...
-                      }),
-                      new MiniCssExtractPlugin({
-                          // Options similar to the same options in webpackOptions.output
-                          // both options are optional
-                          filename: "index.bundle.css"
-                      })
-                  ]
-                : [
-                      new webpack.HotModuleReplacementPlugin({
-                          // Options...
-                      }),
-                      new MiniCssExtractPlugin({
-                          // Options similar to the same options in webpackOptions.output
-                          // both options are optional
-                          filename: "index.bundle.css"
-                      }),
-                      new OptimizeCssAssetsPlugin()
-                  ]
+        plugins: [
+            new webpack.HotModuleReplacementPlugin({
+                // Options...
+            })
+        ]
     };
 };

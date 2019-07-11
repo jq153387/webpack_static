@@ -2,7 +2,7 @@ import $ from "jquery";
 import "../css/style.scss";
 import img from "../css/webpack.png";
 
-console.log(img);
+//console.log(img);
 
 $(() => {
     $("#chme").click(() => {
