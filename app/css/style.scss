@@ -1,0 +1,25 @@
+.yellow_class {
+    color: yellow;
+    span {
+        font-size: 3.5rem;
+    }
+}
+.cover-heading {
+    span {
+        color: #1c78c0;
+    }
+}
+.vertical-container {
+    height: 120px;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.webpack-icon {
+    background-image: url("./webpack.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
